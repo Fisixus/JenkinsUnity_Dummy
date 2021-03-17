@@ -9,12 +9,19 @@ public class JenkinsBuild {
         // ------------------------------------------------------------------------
         // called from Jenkins
         // ------------------------------------------------------------------------
+        [MenuItem("Build/Build iOS")]
         public static void BuildMacOS()
         {
             var args = FindArgs();
      
-            string fullPathAndName = args.targetDir + args.appName + ".app";
-            BuildProject(EnabledScenes, fullPathAndName, BuildTargetGroup.Standalone, BuildTarget.StandaloneOSX, BuildOptions.None);
+            // BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
+            // buildPlayerOptions.scenes = new[] { "Assets/Scene1.unity", "Assets/Scene2.unity" };
+            // buildPlayerOptions.locationPathName = "iOSBuild";
+            // buildPlayerOptions.target = BuildTarget.iOS;
+            // buildPlayerOptions.options = BuildOptions.None;
+
+            string fullPathAndName = args.targetDir + args.appName;
+            BuildProject(EnabledScenes, fullPathAndName, BuildTargetGroup.iOS, BuildTarget.iOS, BuildOptions.None);
         }
      
         // ------------------------------------------------------------------------
